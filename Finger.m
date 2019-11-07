@@ -1,7 +1,10 @@
-function T03 = Finger(joints, links, wrist_rotation, angle_offset, z_offset, x_offset)
-%IndexFinger creates a 3d plot of the index finger 3d space
+function T03 = Finger(joints, links, wrist_rotation, angle_offset, x_rot, z_offset, x_offset)
+%Finger creates a 3d plot of a finger 3d space
+
+    %TW0 = tdh(wrist_rotation,0,0,angle_offset-90);
+    %TW12= tdh(90,0,z_offset+1.05,0);
     T00p = tdh(-90,0,0,angle_offset);
-    T01 = T00p*tdh(joints(1)+90, 0, links(1), 0);
+    T01 = T00p*tdh(joints(1)+90, 0, links(1), x_rot);
     T12 = tdh(joints(2), 0, links(2), 0);
     T02 = T01*T12;
     T23 = tdh(joints(3), 0, links(3), 0);
